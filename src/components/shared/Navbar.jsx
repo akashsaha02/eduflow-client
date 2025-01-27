@@ -12,8 +12,8 @@ const Navbar = () => {
           to="/"
           className={({ isActive }) =>
             isActive
-              ? "text-yolo font-bold !text-yolo"
-              : "text-white hover:!text-yolo font-medium"
+              ? "text-yellow-400 font-bold !text-yellow-400"
+              : "text-white hover:!text-yellow-400 font-medium"
           }
         >
           Home
@@ -24,8 +24,8 @@ const Navbar = () => {
           to="/contact"
           className={({ isActive }) =>
             isActive
-              ? "text-yolo font-bold !text-yolo"
-              : "text-white hover:!text-yolo font-medium"
+              ? "text-yellow-400 font-bold"
+              : "text-white hover:!text-yellow-400 font-medium"
           }
         >
           Contact Us
@@ -37,8 +37,8 @@ const Navbar = () => {
             to="/dashboard"
             className={({ isActive }) =>
               isActive
-                ? "text-yolo font-bold !text-yolo"
-                : "text-white hover:!text-yolo font-medium"
+                ? "text-yellow-400 font-bold !text-yellow-400"
+                : "text-white hover:!text-yellow-400 font-medium"
             }
           >
             Dashboard
@@ -50,8 +50,8 @@ const Navbar = () => {
           to="/menu"
           className={({ isActive }) =>
             isActive
-              ? "text-yolo font-bold !text-yolo"
-              : "text-white hover:!text-yolo font-medium"
+              ? "text-yellow-400 font-bold !text-yellow-400"
+              : "text-white hover:!text-yellow-400 font-medium"
           }
         >
           Our Menu
@@ -62,8 +62,8 @@ const Navbar = () => {
           to="/order"
           className={({ isActive }) =>
             isActive
-              ? "text-yolo font-bold !text-yolo"
-              : "text-white hover:!text-yolo font-medium"
+              ? "text-yellow-400 font-bold !text-yellow-400"
+              : "text-white hover:!text-yellow-400 font-medium"
           }
         >
           Our Shop
@@ -73,7 +73,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="bg-dark-1 sticky top-0 w-full z-50 text-white md:py-2">
+    <div className="bg-dark-1 sticky top-0 w-full z-50 text-white md:py-2 bg-black bg-opacity-90 shadow-md">
       <div className="navbar mx-auto max-w-[1920px]">
         {/* Logo Section */}
         <div className="navbar-start">
@@ -121,7 +121,7 @@ const Navbar = () => {
               className={({ isActive }) =>
                 isActive
                   ? " font-bold px-4 py-2 border rounded-lg bg-yellow-400 text-black border-yellow-400"
-                  : " hover:!text-yolo text-yellow-400 font-medium px-4 py-2 border border-yellow-400 rounded-lg"
+                  : " hover:!text-yellow-400 text-yellow-400 font-medium px-4 py-2 border border-yellow-400 rounded-lg"
               }
             >
               Profile
