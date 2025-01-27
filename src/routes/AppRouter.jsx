@@ -10,6 +10,10 @@ import AdminHome from "../pages/dashboard/admin/AdminHome";
 import TeacherRequests from "../pages/dashboard/admin/TeacherRequests";
 import Users from "../pages/dashboard/admin/Users";
 import AllClasses from "../pages/dashboard/admin/AllClasses";
+import AddClass from "../pages/dashboard/teacher/AddClass";
+import MyClass from "../pages/dashboard/teacher/MyClass";
+import TeacherHome from "../pages/dashboard/teacher/TeacherHome";
+import TeachAcademix from "../pages/TeachAcademix";
 
 
 
@@ -22,12 +26,18 @@ export const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home />
-            }, {
+            }, 
+            {
                 path: '/login',
                 element: <Login />
-            }, {
+            }, 
+            {
                 path: '/register',
                 element: <Register />
+            },
+            {
+                path: '/teach-academix',
+                element: <TeachAcademix/>
             }
         ]
     }, {
@@ -49,6 +59,22 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/profile',
                 element: <Profile />
+            },
+            // Teacher routes
+            {
+                path: '/dashboard/add-class',
+                element: <AddClass />
+
+            },
+            {
+                path: '/dashboard/my-classes',
+                element:<MyClass/>
+
+            },
+            {
+                path: '/dashboard/teacher-profile',
+                element:<TeacherHome/>
+
             },
 
             // Admin routes

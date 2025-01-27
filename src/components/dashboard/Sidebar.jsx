@@ -9,19 +9,24 @@ import { IoMail } from "react-icons/io5";
 // import logo from '../../assets/logo.png'
 import useAdmin from "../../hooks/useAdmin";
 import Loader from "../shared/Loader"
+import useTeacher from "../../hooks/useTeacher";
 
 const Sidebar = () => {
 
 
-    // // const [isAdmin, isAdminLoading] = useAdmin();
-    // if(isAdminLoading) {
-    //     return <Loader />
-    // }
-    // console.log(isAdmin);
-    const isAdmin = false;
+    const [isAdmin, isAdminLoading] = useAdmin();
+    const [isTeacher, isTeacherLoading] = useTeacher();
+    console.log("Teacher", isTeacher)
+    if (isAdminLoading) {
+        return <Loader />
+    }
+    console.log("Admin", isAdmin);
+    // const isAdmin = true;
 
     const sidebarItems =
-        isAdmin ? <>
+        isAdmin ? 
+        <>
+
 
             <li>
                 <NavLink
@@ -87,14 +92,16 @@ const Sidebar = () => {
 
                 </NavLink>
             </li>
-          
 
 
-        </> :
-            <>
-                <li>
+
+        </> : 
+        isTeacher ? 
+        <>
+
+            <li>
                 <NavLink
-                    to="/dashboard/my-enrolled-classes"
+                    to="/dashboard/add-class"
                     className={({ isActive }) =>
                         isActive
                             ? "font-bold !text-white bg-yellow-800"
@@ -103,14 +110,14 @@ const Sidebar = () => {
                 >
                     <div className="flex gap-4 items-center">
                         <HiHome className="inline-block" size={16} />
-                        <p className="">My Enroll Classes</p>
+                        <p className="">Add Class</p>
                     </div>
 
                 </NavLink>
             </li>
             <li>
                 <NavLink
-                    to="/dashboard/profile"
+                    to="/dashboard/my-classes"
                     className={({ isActive }) =>
                         isActive
                             ? "font-bold !text-white bg-yellow-800"
@@ -119,11 +126,63 @@ const Sidebar = () => {
                 >
                     <div className="flex gap-4 items-center">
                         <HiHome className="inline-block" size={16} />
-                        <p className="">Profile</p>
+                        <p className="">My Classes</p>
                     </div>
 
                 </NavLink>
             </li>
+            <li>
+                <NavLink
+                    to="/dashboard/teacher-profile"
+                    className={({ isActive }) =>
+                        isActive
+                            ? "font-bold !text-white bg-yellow-800"
+                            : "text-black hover:!text-yellow-400 font-medium"
+                    }
+                >
+                    <div className="flex gap-4 items-center">
+                        <HiHome className="inline-block" size={16} />
+                        <p className="">My Profile</p>
+                    </div>
+
+                </NavLink>
+            </li>
+
+        </> :
+            <>
+
+                <li>
+                    <NavLink
+                        to="/dashboard/my-enrolled-classes"
+                        className={({ isActive }) =>
+                            isActive
+                                ? "font-bold !text-white bg-yellow-800"
+                                : "text-black hover:!text-yellow-400 font-medium"
+                        }
+                    >
+                        <div className="flex gap-4 items-center">
+                            <HiHome className="inline-block" size={16} />
+                            <p className="">My Enroll Classes</p>
+                        </div>
+
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink
+                        to="/dashboard/profile"
+                        className={({ isActive }) =>
+                            isActive
+                                ? "font-bold !text-white bg-yellow-800"
+                                : "text-black hover:!text-yellow-400 font-medium"
+                        }
+                    >
+                        <div className="flex gap-4 items-center">
+                            <HiHome className="inline-block" size={16} />
+                            <p className="">Profile</p>
+                        </div>
+
+                    </NavLink>
+                </li>
             </>
 
 
@@ -147,7 +206,7 @@ const Sidebar = () => {
 
             </NavLink>
         </li>
-      
+
 
 
     </>

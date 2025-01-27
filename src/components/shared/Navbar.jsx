@@ -45,30 +45,21 @@ const Navbar = () => {
           </NavLink>
         </li>
       )}
+
       <li>
         <NavLink
-          to="/menu"
+          to="/teach-academix"
           className={({ isActive }) =>
             isActive
-              ? "text-yellow-400 font-bold !text-yellow-400"
+              ? "text-yellow-400 font-bold"
               : "text-white hover:!text-yellow-400 font-medium"
           }
         >
-          Our Menu
+          Teach On Academix
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          to="/order"
-          className={({ isActive }) =>
-            isActive
-              ? "text-yellow-400 font-bold !text-yellow-400"
-              : "text-white hover:!text-yellow-400 font-medium"
-          }
-        >
-          Our Shop
-        </NavLink>
-      </li>
+
+
     </>
   );
 
