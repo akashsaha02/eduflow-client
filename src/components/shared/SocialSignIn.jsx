@@ -1,8 +1,8 @@
 import useAuth from '../../hooks/useAuth';
-import useAxiosPublic from '../../hooks/useAxiosPublic';
 import { FcGoogle } from "react-icons/fc";
 import { useNavigate, useLocation } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import useAxiosPublic from '../../hooks/useAxiosPublic';
 
 const SocialSignIn = () => {
 

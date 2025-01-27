@@ -4,7 +4,12 @@ import { Home } from "../pages/Home";
 import Register from "../pages/Register";
 import Login from "../pages/Login";
 import Dashboard from "../Layout/Dashboard";
-import StudentHome from "../pages/dashboard/student/StudentHome";
+import Profile from "../pages/dashboard/student/Profile";
+import MyEnrolledClasses from "../pages/dashboard/student/MyEnrolledClasses";
+import AdminHome from "../pages/dashboard/admin/AdminHome";
+import TeacherRequests from "../pages/dashboard/admin/TeacherRequests";
+import Users from "../pages/dashboard/admin/Users";
+import AllClasses from "../pages/dashboard/admin/AllClasses";
 
 
 
@@ -16,28 +21,56 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home/>
-            },{
-                path:'/login',
-                element: <Login/>
-            },{
-                path:'/register',
-                element: <Register/>
+                element: <Home />
+            }, {
+                path: '/login',
+                element: <Login />
+            }, {
+                path: '/register',
+                element: <Register />
             }
         ]
-    },{
+    }, {
 
         path: '/dashboard',
-        element:<Dashboard/>,
-        children:[
+        element: <Dashboard />,
+        children: [
             {
-                path:'/dashboard',
+                path: '/dashboard',
                 element: <div>Hello dashboard</div>
 
             },
+
+            // Student routes
             {
-                path:'/dashboard/student-home',
-                element: <StudentHome/>
+                path: '/dashboard/my-enrolled-classes',
+                element: <MyEnrolledClasses />
+            },
+            {
+                path: '/dashboard/profile',
+                element: <Profile />
+            },
+
+            // Admin routes
+            {
+                path: '/dashboard/admin-home',
+                element: <AdminHome />
+            },
+            {
+                path: '/dashboard/teacher-requests',
+                element: <TeacherRequests />
+            },
+            {
+                path: '/dashboard/users',
+                element: <Users />
+            },
+            {
+                path: '/dashboard/all-classes',
+                element: <AllClasses />
+            },
+            {
+                path: '/dashboard/admin-profile',
+                element: <AdminHome />
             }
         ]
     }
