@@ -11,7 +11,7 @@ const axiosSecure=useAxiosSecure();
       try {
         const response = await axiosSecure.get('/api/classes');
 
-        console.log(response.data)
+        // console.log(response.data)
         const sortedClasses = response.data.sort((a, b) => b.totalEnrollments - a.totalEnrollments); // Sort by highest enrollment
         setClasses(sortedClasses.slice(0, 6)); // Get top 6 classes
         setLoading(false);
