@@ -62,7 +62,7 @@ const Login = () => {
         {/* Form Section */}
         <div className="p-8">
           <Helmet>
-            <title>Login</title>
+            <title>Academix | Login</title>
           </Helmet>
           <h2 className="text-3xl font-bold text-center my-4">Login</h2>
           {error && <p className="text-red-500 text-center">{error}</p>}

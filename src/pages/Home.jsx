@@ -6,10 +6,14 @@ import TeacherJoinSection from '../components/Home/TeacherJoinSection'
 import StudentTestimonials from '../components/Home/StudentTestimonials'
 import WhyChooseUs from '../components/Home/WhyChooseUs'
 import FeaturedCourses from '../components/Home/FeaturedCourses'
+import { Helmet } from 'react-helmet'
 
 export const Home = () => {
   return (
     <div>
+        <Helmet>
+            <title>Academix | Home</title>
+        </Helmet>
       <CarouselComp/>
       <PartnersSection/>
       <FeaturedCourses/>

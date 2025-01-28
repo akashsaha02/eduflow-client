@@ -20,6 +20,7 @@ import Classes from "../pages/Classes";
 import Payment from "../pages/Payment";
 import MyEnrollDetails from "../pages/dashboard/student/MyEnrollDetails";
 import PrivateRoute from "./PrivateRoute";
+import About from "../pages/About";
 // import Payment from "../pages/Payment";
 
 
@@ -41,6 +42,10 @@ export const router = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register />
+            },
+            {
+                path:'/about',
+                element:<About/>
             },
             {
                 path: '/teach-academix',

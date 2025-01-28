@@ -7,6 +7,7 @@ import { AuthContext } from '../providers/AuthProvider';
 import auth from '../firebase/firebase.init';
 import useAxiosPublic from './../hooks/useAxiosPublic';
 import SocialSignIn from './../components/shared/SocialSignIn';
+import { Helmet } from 'react-helmet';
 
 const Register = () => {
   const axiosPublic = useAxiosPublic();
@@ -80,6 +81,9 @@ const Register = () => {
 
   return (
     <div className="px-4 sm:px-6 lg:px-8 py-20 min-h-screen flex items-center justify-center bg-gray-100">
+        <Helmet>
+            <title>Academix | Register</title>
+        </Helmet>
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 bg-white items-center">
         {/* Image Section */}
         <div className="hidden md:block order-2">

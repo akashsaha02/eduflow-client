@@ -1,8 +1,9 @@
-import { NavLink,useNavigate } from "react-router-dom";
+import { Link, NavLink,useNavigate } from "react-router-dom";
 import useAuth from '../../hooks/useAuth';
 import Swal from "sweetalert2";
 import useAdmin from "../../hooks/useAdmin";
 import useTeacher from "../../hooks/useTeacher";
+import logo from '../../assets/logo.jpg'
 
 const Navbar = () => {
   const { user,logoutUser } = useAuth();
@@ -53,6 +54,18 @@ const Navbar = () => {
           }
         >
           All Classes
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/about"
+          className={({ isActive }) =>
+            isActive
+              ? "text-yellow-400 font-bold"
+              : "text-white hover:!text-yellow-400 font-medium"
+          }
+        >
+          About
         </NavLink>
       </li>
       {user && (
@@ -119,7 +132,11 @@ const Navbar = () => {
               </ul>
             </div>
           </div>
-          <a className="btn btn-ghost text-xl">Academix</a>
+          <Link className="btn btn-ghost flex items-center">
+          
+            <img className="w-8 h-8 rounded-full" src={logo} alt="" />
+            <p className="text-xl hidden md:block">Academix</p>
+          </Link>
         </div>
 
         {/* Navigation Menu */}

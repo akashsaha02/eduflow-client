@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import {  useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const Classes = () => {
   const [classes, setClasses] = useState([]);
@@ -28,6 +29,9 @@ const Classes = () => {
 
   return (
     <div className="p-4">
+        <Helmet>
+            <title>Academix | All Classes</title>
+        </Helmet>
       <h1 className="text-2xl font-semibold mb-6">Classes ({classes.length})</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {classes.map((classItem) => (
