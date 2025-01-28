@@ -1,8 +1,8 @@
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import academicBanner1 from "../../assets/login.jpg"; // Replace with your marathon-related images
-import academicBanner2 from "../../assets/login.jpg";
-import academicBanner3 from "../../assets/login.jpg";
+import academicBanner1 from "../../assets/slider1.jpg"; // Replace with your marathon-related images
+import academicBanner2 from "../../assets/slider2.jpg";
+import academicBanner3 from "../../assets/slider3.jpg";
 import { Link } from "react-router-dom";
 
 const CarouselComp = () => {
@@ -13,8 +13,8 @@ const CarouselComp = () => {
       title: "Unlock Your Full Academic Potential",
       description:
         "Access a world of learning resources, tools, and guidance to take your academic journey to the next level.",
-      linkPrimary: { path: "/resources", text: "Explore Resources" },
-      linkSecondary: { path: "/mentors", text: "Meet Your Mentors" },
+      linkPrimary: { path: "/classes", text: "Explore Classes" },
+      linkSecondary: { path: "/teach-academix", text: "Become a Teacher" },
     },
     {
       src: academicBanner2,
@@ -22,8 +22,8 @@ const CarouselComp = () => {
       title: "Learn, Innovate, and Excel",
       description:
         "Stay updated with the latest in your field through workshops, seminars, and interactive classes.",
-      linkPrimary: { path: "/workshops", text: "Join Workshops" },
-      linkSecondary: { path: "/news", text: "Read Latest News" },
+        linkPrimary: { path: "/classes", text: "Explore Classes" },
+        linkSecondary: { path: "/teach-academix", text: "Become a Teacher" },
     },
     {
       src: academicBanner3,
@@ -31,8 +31,8 @@ const CarouselComp = () => {
       title: "Be a Part of the Campus Community",
       description:
         "Participate in clubs, events, and student-led initiatives. Build lasting connections and unforgettable memories.",
-      linkPrimary: { path: "/clubs", text: "Join a Club" },
-      linkSecondary: { path: "/events", text: "View Events" },
+        linkPrimary: { path: "/classes", text: "Explore Classes" },
+        linkSecondary: { path: "/teach-academix", text: "Become a Teacher" },
     },
   ];
   
