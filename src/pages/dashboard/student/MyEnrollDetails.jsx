@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Modal } from '@mui/material'; // Using Material-UI for modal
 import Rating from 'react-rating'; // React rating component
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
 
@@ -79,6 +78,7 @@ const MyEnrolledClassDetails = () => {
         </table>
       </div>
 
+      {/* Button to open the modal */}
       <button
         onClick={() => setIsModalOpen(true)}
         className="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
@@ -86,33 +86,43 @@ const MyEnrolledClassDetails = () => {
         Teaching Evaluation Report (TER)
       </button>
 
-      {/* Feedback Modal */}
-      <Modal open={isModalOpen} onClose={() => setIsModalOpen(false)}>
-        <div className="p-4 bg-white rounded shadow-lg mx-auto mt-20 max-w-md">
-          <h2 className="text-xl font-bold mb-4">Teaching Evaluation Report</h2>
-          <textarea
-            value={feedback.description}
-            onChange={(e) => setFeedback({ ...feedback, description: e.target.value })}
-            placeholder="Write your feedback..."
-            className="w-full p-2 border border-gray-300 rounded mb-4"
-          ></textarea>
-          <div className="mb-4">
-            <label className="block mb-2">Rating:</label>
-            <Rating
-              initialRating={feedback.rating}
-              onChange={(value) => setFeedback({ ...feedback, rating: value })}
-              emptySymbol="☆"
-              fullSymbol="★"
-            />
+      {/* DaisyUI Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="bg-white rounded-lg p-6 w-full max-w-md relative">
+            <button
+              onClick={() => setIsModalOpen(false)}
+              className="absolute top-3 right-3 text-gray-500 hover:text-black"
+            >
+              ✕
+            </button>
+            <h2 className="text-xl font-bold mb-4">Teaching Evaluation Report</h2>
+            <textarea
+              value={feedback.description}
+              onChange={(e) => setFeedback({ ...feedback, description: e.target.value })}
+              placeholder="Write your feedback..."
+              className="w-full p-2 border border-gray-300 rounded mb-4"
+            ></textarea>
+            <div className="mb-4">
+              <label className="block mb-2">Rating:</label>
+              <div className="text-xl">
+                <Rating
+                  initialRating={feedback.rating}
+                  onChange={(value) => setFeedback({ ...feedback, rating: value })}
+                  emptySymbol={<span className="text-gray-400">☆</span>}
+                  fullSymbol={<span className="text-yellow-500">★</span>}
+                />
+              </div>
+            </div>
+            <button
+              onClick={handleFeedbackSubmit}
+              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+            >
+              Send
+            </button>
           </div>
-          <button
-            onClick={handleFeedbackSubmit}
-            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-          >
-            Send
-          </button>
         </div>
-      </Modal>
+      )}
     </div>
   );
 };
