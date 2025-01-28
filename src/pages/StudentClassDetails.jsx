@@ -1,10 +1,11 @@
 // src/pages/StudentClassDetails.js
 
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import useAxiosSecure from '../hooks/useAxiosSecure';
 
 const StudentClassDetails = () => {
+    const navigate=useNavigate();
   const { id } = useParams();
   const [classData, setClassData] = useState(null);
   
@@ -58,9 +59,12 @@ const StudentClassDetails = () => {
 
               {/* Enroll Button */}
               <div className="flex justify-center">
-                <button className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300">
-                  Enroll Now
-                </button>
+              <button
+                className="bg-blue-500 text-white px-4 py-2 rounded w-full hover:bg-blue-600 transition"
+                onClick={() => navigate(`/checkout/${classData._id}`)}
+              >
+                Enroll
+              </button>
               </div>
             </div>
           </div>
