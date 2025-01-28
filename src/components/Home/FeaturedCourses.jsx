@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
+import { useNavigate } from 'react-router-dom';
 
 const PopularCourses = () => {
   const [classes, setClasses] = useState([]);
   const [loading, setLoading] = useState(true);
-const axiosSecure=useAxiosSecure();
+  const axiosSecure = useAxiosSecure();
+  const navigate=useNavigate();
   useEffect(() => {
     // Fetch all classes when component mounts
     const fetchClasses = async () => {
@@ -43,9 +45,12 @@ const axiosSecure=useAxiosSecure();
                 <h3 className="text-xl font-semibold mb-2">{course.title}</h3>
                 <p className="text-gray-600 mb-4 line-clamp-2">{course.description}</p>
                 <p className="text-gray-800 font-semibold">Enrollments: {course.totalEnrollments || 0}</p>
-                <a href={`/courses/${course._id}`} className="text-blue-600 hover:underline">
-                  Learn More
-                </a>
+                <button
+                  className="bg-green-500 text-white px-4 py-2 rounded w-full hover:bg-green-600 transition mt-2"
+                  onClick={() => navigate(`/class/details/${course._id}`)}
+                >
+                  Details
+                </button>
               </div>
             ))}
           </div>

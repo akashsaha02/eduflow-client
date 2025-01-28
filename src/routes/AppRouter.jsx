@@ -50,7 +50,10 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/class/details/:id',
-                element: <StudentClassDetails />
+                element: 
+                <PrivateRoute>
+                <StudentClassDetails />
+                </PrivateRoute>
             },
 
             {
