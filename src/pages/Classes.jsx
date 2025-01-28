@@ -42,14 +42,14 @@ const Classes = () => {
               className="w-full h-40 object-cover"
             />
             <div className="p-4">
-              <h2 className="text-xl font-semibold mb-2">{classItem.title}</h2>
+              <h2 className="text-xl font-semibold mb-2 line-clamp-1">{classItem.title}</h2>
               <p className="text-gray-600 text-sm mb-2">
                 <span className="font-semibold">Posted by:</span> {classItem.postedBy || "Unknown"}
               </p>
               <p className="text-gray-600 text-sm mb-2">
                 <span className="font-semibold">Price:</span> ${classItem.price || "Free"}
               </p>
-              <p className="text-gray-600 text-sm mb-4">{classItem.description || "No description provided."}</p>
+              <p className="text-gray-600 text-sm mb-4 line-clamp-1">{classItem.description || "No description provided."}</p>
               <p className="text-gray-600 text-sm mb-4">
                 <span className="font-semibold">Total Enrollments:</span> {classItem.totalEnrollments || 0}
               </p>
@@ -58,6 +58,12 @@ const Classes = () => {
                 onClick={() => navigate(`/checkout/${classItem._id}`)}
               >
                 Enroll
+              </button>
+              <button
+                className="bg-green-500 text-white px-4 py-2 rounded w-full hover:bg-green-600 transition mt-2"
+                onClick={() => navigate(`/class/details/${classItem._id}`)}
+              >
+                Details
               </button>
             </div>
           </div>

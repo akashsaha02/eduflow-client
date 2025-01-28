@@ -21,6 +21,7 @@ import Payment from "../pages/Payment";
 import MyEnrollDetails from "../pages/dashboard/student/MyEnrollDetails";
 import PrivateRoute from "./PrivateRoute";
 import About from "../pages/About";
+import StudentClassDetails from "../pages/StudentClassDetails";
 // import Payment from "../pages/Payment";
 
 
@@ -34,48 +35,53 @@ export const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home />
-            }, 
+            },
             {
                 path: '/login',
                 element: <Login />
-            }, 
+            },
             {
                 path: '/register',
                 element: <Register />
             },
             {
-                path:'/about',
-                element:<About/>
+                path: '/about',
+                element: <About />
             },
             {
-                path: '/teach-academix',
-                element: 
-                <PrivateRoute>
-                    <TeachAcademix/>
+                path: '/class/details/:id',
+                element: <StudentClassDetails />
+            },
 
-                </PrivateRoute>
+            {
+                path: '/teach-academix',
+                element:
+                    <PrivateRoute>
+                        <TeachAcademix />
+
+                    </PrivateRoute>
             },
             {
                 path: '/classes',
-                element:<Classes/>
+                element: <Classes />
             },
             {
                 path: '/checkout/:id',
-                element: 
-                <PrivateRoute>
-                    <Payment/>
-</PrivateRoute>
-                
+                element:
+                    <PrivateRoute>
+                        <Payment />
+                    </PrivateRoute>
+
             }
         ]
     }, {
 
         path: '/dashboard',
-        element: 
-        <PrivateRoute>
+        element:
+            <PrivateRoute>
 
-            <Dashboard />
-        </PrivateRoute>,
+                <Dashboard />
+            </PrivateRoute>,
         children: [
             {
                 path: '/dashboard',
@@ -93,8 +99,8 @@ export const router = createBrowserRouter([
                 element: <Profile />
             },
             {
-                path:'/dashboard/myenroll-class/:id',
-                element:<MyEnrollDetails/>
+                path: '/dashboard/myenroll-class/:id',
+                element: <MyEnrollDetails />
 
             },
             // Teacher routes
@@ -105,17 +111,17 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/my-classes',
-                element:<MyClass/>
+                element: <MyClass />
 
             },
             {
                 path: '/dashboard/teacher-profile',
-                element:<TeacherHome/>
+                element: <TeacherHome />
 
             },
             {
-                path:"/dashboard/my-class/:id",
-                element:<ClassDetails/>
+                path: "/dashboard/my-class/:id",
+                element: <ClassDetails />
 
             },
 
