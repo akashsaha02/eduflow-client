@@ -1,23 +1,28 @@
-import React from 'react';
+import partnerImg1 from '../../assets/unnamed.jpg'
+import partnerImg2 from '../../assets/images.jpg'
+import partnerImg3 from '../../assets/download.jpg'
+
+import partnerImg4 from '../../assets/physic-wallah.jpg'
+
 
 const partners = [
   {
-    logo: "https://via.placeholder.com/150x100", // Replace with partner logo URL
+    logo: partnerImg1, // Replace with partner logo URL
     name: "TechEd Solutions",
     description: "Empowering students with cutting-edge educational tools and resources.",
   },
   {
-    logo: "https://via.placeholder.com/150x100",
+    logo: partnerImg2,
     name: "SkillHub Academy",
     description: "Offering premium skill development courses and certification programs.",
   },
   {
-    logo: "https://via.placeholder.com/150x100",
+    logo: partnerImg3,
     name: "CareerBoost Inc.",
     description: "Connecting students with top internship and job opportunities worldwide.",
   },
   {
-    logo: "https://via.placeholder.com/150x100",
+    logo: partnerImg4,
     name: "EduCare Foundation",
     description: "Supporting students with scholarships and academic counseling services.",
   },
