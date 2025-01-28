@@ -14,9 +14,9 @@ export const Home = () => {
       <PartnersSection/>
       <FeaturedCourses/>
       <StatisticsSection/>
+      <WhyChooseUs/>
       <TeacherJoinSection/>
       <StudentTestimonials/>
-      <WhyChooseUs/>
 
 
     </div>

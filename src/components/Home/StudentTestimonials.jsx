@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules'; // Import Autoplay module
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+import { motion, AnimatePresence } from 'framer-motion';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const FeedbackCarousel = () => {
   const [feedbacks, setFeedbacks] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const axiosSecure = useAxiosSecure();
 
   useEffect(() => {
@@ -27,6 +24,15 @@ const FeedbackCarousel = () => {
     fetchFeedback();
   }, []);
 
+  useEffect(() => {
+    if (feedbacks.length > 1) {
+      const interval = setInterval(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % feedbacks.length);
+      }, 3000); // Change slide every 3 seconds
+      return () => clearInterval(interval);
+    }
+  }, [feedbacks]);
+
   return (
     <section className="py-12 bg-gray-100">
       <div className="max-w-7xl mx-auto px-6 text-center">
@@ -36,40 +42,31 @@ const FeedbackCarousel = () => {
         ) : feedbacks.length === 0 ? (
           <p>No feedback available at the moment.</p>
         ) : (
-          <Swiper
-            spaceBetween={20}
-            slidesPerView={1}
-            navigation
-            pagination={{ clickable: true }}
-            autoplay={{
-              delay: 3000, // Delay in milliseconds
-              disableOnInteraction: false, // Keep autoplay even after user interaction
-            }}
-            loop={true} // Enable loop
-            modules={[Navigation, Pagination, Autoplay]} // Add Autoplay module
-            breakpoints={{
-              640: { slidesPerView: 1 },
-              768: { slidesPerView: 2 },
-              1024: { slidesPerView: 3 },
-            }}
-          >
-            {feedbacks.map((feedback) => (
-              <SwiperSlide key={feedback._id}>
-                <div className="bg-white p-6 rounded-lg shadow-lg">
+          <div className="relative h-96 flex items-center justify-center">
+            <AnimatePresence mode="wait">
+              {feedbacks.length > 0 && (
+                <motion.div
+                  key={feedbacks[currentIndex]._id}
+                  initial={{ opacity: 0, x: 100 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -100 }}
+                  transition={{ duration: 0.8, ease: 'easeInOut' }}
+                  className="absolute bg-white p-6 rounded-lg shadow-lg max-w-lg w-full"
+                >
                   <img
-                    src={feedback.classImage || 'https://via.placeholder.com/400'}
-                    alt={feedback.classTitle || 'Class'}
+                    src={feedbacks[currentIndex].classImage || 'https://via.placeholder.com/400'}
+                    alt={feedbacks[currentIndex].classTitle || 'Class'}
                     className="w-full h-48 object-cover rounded-lg mb-4"
                   />
-                  <p className="text-gray-600 mb-4">"{feedback.description}"</p>
+                  <p className="text-gray-600 mb-4">"{feedbacks[currentIndex].description}"</p>
                   <div className="flex items-center justify-between flex-col">
-                    <h4 className="font-bold capitalize">Mentor: {feedback.classTeacher || 'Anonymous'}</h4>
-                    <p className="text-gray-600">{feedback.classTitle}</p>
+                    <h4 className="font-bold capitalize">Mentor: {feedbacks[currentIndex].classTeacher || 'Anonymous'}</h4>
+                    <p className="text-gray-600">{feedbacks[currentIndex].classTitle}</p>
                   </div>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         )}
       </div>
     </section>
