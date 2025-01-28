@@ -40,6 +40,9 @@ const ClassDetails = () => {
     fetchClassDetails();
   }, [id, axiosSecure]);
 
+  const totalSubmissions = assignments.reduce((acc, res) => acc + res.submissionCount, 0);
+console.log(totalSubmissions);
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setAssignmentForm({ ...assignmentForm, [name]: value });
@@ -76,11 +79,15 @@ const ClassDetails = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-4">
         <div className="border p-4 rounded-lg shadow-lg">
           <h3 className="text-xl font-semibold">Total Enrollment</h3>
-          <p>{enrollments}</p>
+          <p>{classData.totalEnrollments}</p>
         </div>
         <div className="border p-4 rounded-lg shadow-lg">
           <h3 className="text-xl font-semibold">Total Assignments</h3>
           <p>{assignments.length}</p>
+        </div>
+        <div className="border p-4 rounded-lg shadow-lg">
+          <h3 className="text-xl font-semibold">Total Submissions</h3>
+          <p>{totalSubmissions}</p>
         </div>
       </div>
 
