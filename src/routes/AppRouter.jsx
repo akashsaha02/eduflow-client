@@ -14,6 +14,12 @@ import AddClass from "../pages/dashboard/teacher/AddClass";
 import MyClass from "../pages/dashboard/teacher/MyClass";
 import TeacherHome from "../pages/dashboard/teacher/TeacherHome";
 import TeachAcademix from "../pages/TeachAcademix";
+import ClassDetails from "../pages/dashboard/teacher/ClassDetails";
+import UpdateClass from "../pages/dashboard/teacher/UpdateClass";
+import Classes from "../pages/Classes";
+import Payment from "../pages/Payment";
+import MyEnrollDetails from "../pages/dashboard/student/MyEnrollDetails";
+// import Payment from "../pages/Payment";
 
 
 
@@ -38,6 +44,14 @@ export const router = createBrowserRouter([
             {
                 path: '/teach-academix',
                 element: <TeachAcademix/>
+            },
+            {
+                path: '/classes',
+                element:<Classes/>
+            },
+            {
+                path: '/checkout/:id',
+                element: <Payment/>
             }
         ]
     }, {
@@ -60,6 +74,11 @@ export const router = createBrowserRouter([
                 path: '/dashboard/profile',
                 element: <Profile />
             },
+            {
+                path:'/dashboard/myenroll-class/:id',
+                element:<MyEnrollDetails/>
+
+            },
             // Teacher routes
             {
                 path: '/dashboard/add-class',
@@ -75,6 +94,16 @@ export const router = createBrowserRouter([
                 path: '/dashboard/teacher-profile',
                 element:<TeacherHome/>
 
+            },
+            {
+                path:"/dashboard/my-class/:id",
+                element:<ClassDetails/>
+
+            },
+
+            {
+                path: '/dashboard/update-class/:id',
+                element: <UpdateClass />
             },
 
             // Admin routes

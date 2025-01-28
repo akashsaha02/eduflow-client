@@ -1,5 +1,4 @@
 import { NavLink } from "react-router-dom";
-import { FaCartShopping } from "react-icons/fa6";
 import useAuth from '../../hooks/useAuth';
 
 const Navbar = () => {
@@ -21,14 +20,14 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          to="/contact"
+          to="/classes"
           className={({ isActive }) =>
             isActive
               ? "text-yellow-400 font-bold"
               : "text-white hover:!text-yellow-400 font-medium"
           }
         >
-          Contact Us
+          All Classes
         </NavLink>
       </li>
       {user && (
