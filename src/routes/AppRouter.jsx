@@ -19,6 +19,7 @@ import UpdateClass from "../pages/dashboard/teacher/UpdateClass";
 import Classes from "../pages/Classes";
 import Payment from "../pages/Payment";
 import MyEnrollDetails from "../pages/dashboard/student/MyEnrollDetails";
+import PrivateRoute from "./PrivateRoute";
 // import Payment from "../pages/Payment";
 
 
@@ -43,7 +44,11 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/teach-academix',
-                element: <TeachAcademix/>
+                element: 
+                <PrivateRoute>
+                    <TeachAcademix/>
+
+                </PrivateRoute>
             },
             {
                 path: '/classes',
@@ -51,13 +56,21 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/checkout/:id',
-                element: <Payment/>
+                element: 
+                <PrivateRoute>
+                    <Payment/>
+</PrivateRoute>
+                
             }
         ]
     }, {
 
         path: '/dashboard',
-        element: <Dashboard />,
+        element: 
+        <PrivateRoute>
+
+            <Dashboard />
+        </PrivateRoute>,
         children: [
             {
                 path: '/dashboard',
