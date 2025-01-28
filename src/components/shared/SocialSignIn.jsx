@@ -46,13 +46,14 @@ const SocialSignIn = () => {
         }
     };
     return (
-        <div className="flex gap-4">
+        <div className="">
             <button
                 onClick={handleGoogleSignIn}
                 type="button"
-                className="p-4 border rounded-full"
+                className="flex items-center gap-2 border-2 border-yellow-400 px-4 py-2 rounded-xl"
             >
                 <FcGoogle/>
+            <p>Sign in with Google</p>
             </button>
         </div>
     )

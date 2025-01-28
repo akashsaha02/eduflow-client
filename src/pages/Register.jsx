@@ -1,4 +1,4 @@
-// import loginImg from '../assets/others/authentication1.png';
+import loginImg from '../assets/login.jpg';
 import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { signOut, updateProfile } from 'firebase/auth';
@@ -83,7 +83,7 @@ const Register = () => {
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 bg-white items-center">
         {/* Image Section */}
         <div className="hidden md:block order-2">
-          {/* <img src={loginImg} alt="login" className="w-full" /> */}
+          <img src={loginImg} alt="login" className="w-full" />
         </div>
 
         {/* Form Section */}
@@ -150,7 +150,7 @@ const Register = () => {
             <div>
               <button
                 type="submit"
-                className="block text-center py-3 px-4 text-white font-semibold w-full rounded-lg my-4 bg-beige"
+                className="block text-center py-3 px-4 text-white font-semibold w-full rounded-lg my-4 bg-yellow-500"
               >
                 Register
               </button>

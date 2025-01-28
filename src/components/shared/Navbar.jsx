@@ -1,8 +1,29 @@
-import { NavLink } from "react-router-dom";
+import { NavLink,useNavigate } from "react-router-dom";
 import useAuth from '../../hooks/useAuth';
+import Swal from "sweetalert2";
 
 const Navbar = () => {
-  const { user } = useAuth();
+  const { user,logoutUser } = useAuth();
+  const navigate=useNavigate();
+
+  const handleLogout = async () => {
+        try {
+          await logoutUser();
+          Swal.fire({
+            icon: 'success',
+            title: 'Logged Out',
+            text: 'You have been logged out successfully.',
+          }).then(() => {
+            navigate('/');
+          });
+        } catch (err) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Failed to log out. Please try again.',
+          });
+        }
+      };
 
   const navItems = (
     <>
@@ -94,7 +115,7 @@ const Navbar = () => {
               </ul>
             </div>
           </div>
-          <a className="btn btn-ghost text-xl">Bistro Boss</a>
+          <a className="btn btn-ghost text-xl">Academix</a>
         </div>
 
         {/* Navigation Menu */}
@@ -106,16 +127,7 @@ const Navbar = () => {
         {user ? (
           <div className="navbar-end space-x-2">
             <p className="">{user.email}</p>
-            <NavLink
-              to="/profile"
-              className={({ isActive }) =>
-                isActive
-                  ? " font-bold px-4 py-2 border rounded-lg bg-yellow-400 text-black border-yellow-400"
-                  : " hover:!text-yellow-400 text-yellow-400 font-medium px-4 py-2 border border-yellow-400 rounded-lg"
-              }
-            >
-              Profile
-            </NavLink>
+            <button onClick={() => handleLogout()} type="" className="btn btn-sm btn-error rounded-full">logout</button>
             {user.photoURL ? (<img src={user.photoURL} alt="user" className="w-10 h-10 rounded-full" />) : null}
           </div>
         ) : (
