@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Rating from 'react-rating'; // React rating component
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
@@ -14,6 +14,7 @@ const MyEnrolledClassDetails = () => {
     // Fetch assignments for the class
     axiosPublic.get(`/api/assignments/${id}`).then((res) => {
       setAssignments(res.data);
+      console.log(res.data)
     });
   }, [id, axiosPublic]);
 

@@ -1,10 +1,14 @@
 import { NavLink,useNavigate } from "react-router-dom";
 import useAuth from '../../hooks/useAuth';
 import Swal from "sweetalert2";
+import useAdmin from "../../hooks/useAdmin";
+import useTeacher from "../../hooks/useTeacher";
 
 const Navbar = () => {
   const { user,logoutUser } = useAuth();
   const navigate=useNavigate();
+  const [isAdmin]=useAdmin();
+  const [isTeacher]=useTeacher();
 
   const handleLogout = async () => {
         try {
@@ -54,7 +58,7 @@ const Navbar = () => {
       {user && (
         <li>
           <NavLink
-            to="/dashboard"
+            to={isAdmin?'/dashboard/admin-profile':isTeacher?'/dashboard/teacher-profile':'/dashboard/profile'}
             className={({ isActive }) =>
               isActive
                 ? "text-yellow-400 font-bold !text-yellow-400"
